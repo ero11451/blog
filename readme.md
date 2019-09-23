@@ -51,3 +51,12 @@ npm start
 
 
 #### Debug with VSCode
+
+## Endpoints and methods to run 
+* /mypost" get
+* /allpost" get
+*  /reg post
+* /login post
+* /makepost post
+* /news get
+<!-- xxx -->
