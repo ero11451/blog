@@ -21,18 +21,12 @@ export const userModel = connectdb.define('userModel', {
            primaryKey: true           
          }
 })
-userModel.sync({ alter:true })
-    .then((user:any) => {
-      console.log(`user table created${user}`);
-    }).catch((error:any)=>{
-      console.log(error);
-    })
-    
+
 export const postModel = connectdb.define('postModel', {
-      title: {
+    title: {
        type: Sequelize.STRING(50),
       },
-      message:{
+    message:{
          type:Sequelize.TEXT,
       },
      creator_id:{
@@ -44,6 +38,42 @@ export const postModel = connectdb.define('postModel', {
      }
 })
 
+export const likesModel = connectdb.define("likeModel",{
+      postid:{
+        type:Sequelize.INTEGER
+      },
+      like:{
+        type: Sequelize.STRING
+      },
+      userid:{
+        type:Sequelize.INTEGER,
+        // unique:true
+      }
+    
+})
+
+export const commentModel = connectdb.define("commentModel",{
+  postid:{
+    type:Sequelize.INTEGER
+  },
+  comment:{
+    type:Sequelize.STRING,
+  },
+  commentby:{
+    type:Sequelize.STRING
+  },
+  // commentid:{
+  //   type:Sequelize.INTEGER,
+  //   autoIncrement: true,
+  // }
+})
+
+commentModel.sync({alter:true}).then((comment:any)=>{
+   console.log(`comment was created ${comment}`)
+}).catch((error:any)=>{
+  console.log(error)
+})
+
 postModel.sync({ alter: true })
 .then((post:any) => {
   console.log(`post table created ${post}`);
@@ -51,6 +81,19 @@ postModel.sync({ alter: true })
   console.log(error);
 })
 
+likesModel.sync({ alter: true })
+.then((post:any) => {
+  console.log(`post table created ${post}`);
+}).catch((error:any)=>{
+  console.log(error);
+})
 
 
+userModel.sync({ alter:true })
+    .then((user:any) => {
+      console.log(`user table created${user}`);
+    }).catch((error:any)=>{
+      console.log(error);
+    })
+    
 

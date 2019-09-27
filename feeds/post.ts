@@ -5,7 +5,7 @@ import { postModel } from "../db/database"
 const express = require('express')
 const router = express.Router()
 
-router.post("/makepost",validateToken , async (req:any,res:any)=>{
+router.post("/",validateToken , async (req:any,res:any)=>{
       const user_id = req.user.user.user_id
       const userName = req.user.user.userName
       const title = req.body.title

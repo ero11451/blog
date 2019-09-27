@@ -59,4 +59,6 @@ npm start
 * /login post
 * /makepost post
 * /news get
+* /:postid/like/:like/user/:id"
+
 <!-- xxx -->
